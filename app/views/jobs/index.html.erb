@@ -1,0 +1,28 @@
+<% @posts.each do |post| %>
+  <a href="<%= post_corrections_path(post) %>" class="card m-2">
+    <div class="card-body p-2">
+      <div class="row">
+        <div class="col-10">
+          <%= truncate post.original_text, length: 100 %>
+        </div>
+        <div class="col-2">
+
+          <span class="badge badge-primary">
+            <%= post.word_count %> words
+          </span>
+
+          <span class="badge badge-secondary">
+            $<%= post.pretty_price %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </a>
+<% end %>
+
+<style>
+.card {
+  cursor: pointer; 
+}
+</style>
+

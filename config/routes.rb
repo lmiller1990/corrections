@@ -4,4 +4,6 @@ Rails.application.routes.draw do
       resources :corrections
     end
   end
+
+  resources :jobs, only: %(index)
 end

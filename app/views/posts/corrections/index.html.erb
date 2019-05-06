@@ -1,1 +1,18 @@
-Post: <%= @post[:original_text] %>
+<div class="row">
+  <div class="col-6">
+    <%= @post[:original_text] %>
+  </div>
+
+  <div class="col-6">
+    <%= form_with model: @post do |f| %>
+      <div class="form-group">
+        <%= f.text_area :corrected_text, class: 'form-control', rows: 15, placeholder: 'Enter your text...' %>
+      </div>
+
+      <div class="d-flex justify-content-end">
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

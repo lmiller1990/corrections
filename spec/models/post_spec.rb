@@ -17,4 +17,14 @@ RSpec.describe Post, type: :model do
       expect(post.pretty_price).to eq '10.00'
     end
   end
+
+  describe '.awaiting_correction' do
+    it 'returns posts w/ status awaiting correction and nil correction text' do
+      awaiting = create(:post, status: :awaiting_correction, corrected_text: nil)
+      complete = create(:post, status: :awaiting_correction, corrected_text: 'Some text')
+      complete = create(:post, status: :complete)
+
+      expect(Post.awaiting_correction.count).to eq 1
+    end
+  end
 end

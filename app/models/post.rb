@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   enum status: [:awaiting_correction, :in_correction, :awaiting_approval, :complete]
 
+  scope :awaiting_correction, -> { where(status: :awaiting_correction, corrected_text: nil) }
+
   def self.create_with_cost(post_params)
     # TODO: save this somewhere else
     cost_per_word = 5
