@@ -1,0 +1,15 @@
+<%= javascript_pack_tag 'posts/show' %>
+<%= stylesheet_pack_tag 'posts/show' %>
+
+<div id="diff">
+</div>
+
+<div id="original">
+  <h3>Original</h3>
+  <%= @post[:original_text] %>
+</div>
+
+<div id="corrected">
+  <h3>Corrected</h3>
+  <%= @post[:corrected_text] %>
+</div>
