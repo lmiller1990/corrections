@@ -10,6 +10,10 @@ const renderDiff = () => {
   const corrected = document.getElementById('corrected').innerText
   const diffed = document.getElementById('diff')
 
+  if (!diffed) {
+    return
+  }
+
   const diff = Diff.diffWords(original, corrected)
 
   let first = true

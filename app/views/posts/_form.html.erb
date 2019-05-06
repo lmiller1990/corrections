@@ -1,7 +1,7 @@
 <%= form_with model: @post do |f| %>
   <div class="form-group">
-    <%= f.label :original_text %>
-    <%= f.text_area :original_text, class: 'form-control', rows: 15 %>
+    <%#= f.label :original_text %>
+    <%= f.text_area :original_text, class: 'form-control', rows: 15, placeholder: 'Enter your text...' %>
 
   <%#= f.label :corrected_text %>
   <%#= f.text_area :corrected_text %>

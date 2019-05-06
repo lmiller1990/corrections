@@ -1,0 +1,10 @@
+<%= javascript_pack_tag 'posts' %>
+
+<% if @post.corrected_text %>
+  <div id="diff" class="min-margin">
+    <h3>Comparsion</h3>
+  </div>
+
+  <hr>
+<% end %>
+

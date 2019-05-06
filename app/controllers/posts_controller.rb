@@ -8,9 +8,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = Post.create_with_cost(post_params)
     if @post.save
-      redirect_to @post
+      redirect_to posts_url
     else
       render 'new'
     end
