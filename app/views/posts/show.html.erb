@@ -1,15 +1,47 @@
-<%= javascript_pack_tag 'posts/show' %>
-<%= stylesheet_pack_tag 'posts/show' %>
+<%= javascript_pack_tag 'posts' %>
 
-<div id="diff">
+<div id="diff" class="min-margin">
+  <h3>Comparsion</h3>
 </div>
 
-<div id="original">
-  <h3>Original</h3>
-  <%= @post[:original_text] %>
+
+<div id="original-and-corrected">
+  <div class="text min-margin">
+    <h3>Original</h3>
+    <div id="original">
+      <%= simple_format @post[:original_text] %>
+    </div>
+  </div>
+
+  <div class="text min-margin">
+    <h3>Corrected</h3>
+
+    <div id="corrected">
+      <%= simple_format @post[:corrected_text] %>
+    </div>
+  </div>
 </div>
 
-<div id="corrected">
-  <h3>Corrected</h3>
-  <%= @post[:corrected_text] %>
-</div>
+
+<style>
+#original-and-corrected {
+  display: flex;
+}
+
+.min-margin {
+  margin: 8px;
+}
+
+.text {
+  max-width: 400px;
+}
+
+.added {
+  background: rgb(172, 242, 188);
+}
+
+.removed {
+  background: rgb(253, 183, 191);
+  text-decoration: line-through;
+}
+</style>
