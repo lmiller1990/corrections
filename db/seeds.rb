@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 
-submitter = User.create({ email: 'submitter@email.com', name: 'submitter', password_digest: 'asdf' })
-correcter = User.create({ email: 'correcter@email.com', name: 'correcter', password_digest: 'asdf' })
-me = User.create({ email: 'lachlan@email.com', name: 'lachlan', password_digest: 'asdf' })
+password_digest = BCrypt::Password.create('asdf')
+submitter = User.create({ email: 'submitter@email.com', name: 'submitter', password: 'asdf', password_digest: password_digest })
+correcter = User.create({ email: 'correcter@email.com', name: 'correcter', password: 'asdf', password_digest: password_digest })
+me = User.create({ email: 'lachlan@email.com', name: 'lachlan', password: 'asdf', password_digest: password_digest })
 
 original_text = "I have visited Niagara Falls last weekend.\nThe woman which works here is from Japan.\nShe’s married with a dentist.\nShe was boring in the class.\nI must to call him immediately. Every students like the teacher.\nAlthough it was raining, but we had the picnic. I enjoyed from the movie."
 

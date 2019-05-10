@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   belongs_to :user
 
   scope :awaiting_correction, -> { where(status: :awaiting_correction, corrected_text: nil) }
+  scope :not_mine, -> (user_id) { where.not(user_id: user_id) }
 
   def self.create_with_cost(post_params)
     # TODO: save this somewhere else
