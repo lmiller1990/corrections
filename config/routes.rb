@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :posts do
     scope module: 'posts' do
       resources :corrections
-      resources :claim, only: %(update)
+      resources :claim
     end
   end
 
