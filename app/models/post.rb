@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   enum status: [:awaiting_correction, :in_correction, :awaiting_approval, :complete]
+  belongs_to :user
 
   scope :awaiting_correction, -> { where(status: :awaiting_correction, corrected_text: nil) }
 
