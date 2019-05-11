@@ -4,6 +4,12 @@ RSpec.describe Post, type: :model do
   let!(:correcter) { create :correcter }
   let!(:submitter) { create :submitter }
 
+  it 'belongs to a user and a correcter' do
+    post = create(:post, user_id: submitter.id, claimed_by: correcter.id)
+    expect(post.user).to eq submitter
+    expect(post.correcter).to eq correcter
+  end
+
   describe '#word_count' do
     it 'returns word count' do
       post = build(:post, original_text: 'a b c')

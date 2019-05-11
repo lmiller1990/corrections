@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   enum status: [:awaiting_correction, :in_correction, :awaiting_approval, :complete]
   belongs_to :user
+  belongs_to :correcter, class_name: 'User', foreign_key: 'claimed_by', optional: true
 
   scope :awaiting_correction, -> { where(status: :awaiting_correction, corrected_text: nil) }
   scope :not_mine, -> (user_id) { where.not(user_id: user_id) }

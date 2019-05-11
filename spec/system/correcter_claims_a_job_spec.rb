@@ -35,6 +35,9 @@ RSpec.describe 'user claims a job', type: :system do
       visit post_corrections_path post
       post.update_attributes(status: :in_correction)
       click_on 'Claim this job'
+
+      expect(current_path).to eq jobs_path
+      expect(post.claimed_by).not_to eq correcter.id
     end
   end
 end
